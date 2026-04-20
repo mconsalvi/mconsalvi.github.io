@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Research &amp; Projects — Matteo Consalvi</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:       #1a1814;
+      --parchment: #f7f4ef;
+      --warm-mid:  #e8e3da;
+      --accent:    #7a5c3a;
+      --accent-lt: #b08a60;
+      --muted:     #8a8278;
+      --serif:     'Cormorant Garamond', Georgia, serif;
+      --sans:      'DM Sans', system-ui, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--parchment);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-weight: 300;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.25rem 4rem;
+      background: rgba(247,244,239,0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--warm-mid);
+    }
+    .nav-brand {
+      font-family: var(--serif);
+      font-size: 1.15rem; font-weight: 400;
+      letter-spacing: 0.04em;
+      color: var(--ink); text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a {
+      font-size: 0.8rem; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--muted);
+      text-decoration: none; transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-links a.active {
+      border-bottom: 1px solid var(--accent);
+      padding-bottom: 2px; color: var(--accent);
+    }
+
+    /* ─── PAGE HEADER ─── */
+    .page-header {
+      padding: 9rem 4rem 3rem;
+      max-width: 960px; margin: 0 auto;
+      animation: fadeUp 0.6s ease both;
+    }
+    .page-eyebrow {
+      font-size: 0.72rem; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--accent);
+      margin-bottom: 0.8rem;
+    }
+    h1 {
+      font-family: var(--serif);
+      font-size: clamp(2.4rem, 4vw, 3.5rem);
+      font-weight: 300; line-height: 1.1; margin-bottom: 0;
+    }
+
+    /* ─── CONTENT WRAPPER ─── */
+    .content {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 4rem 6rem;
+      animation: fadeUp 0.65s ease 0.1s both;
+    }
+
+    /* ─── RESEARCH BLOCK ─── */
+    .research-block {
+      padding: 3.5rem 0;
+      border-top: 1px solid var(--warm-mid);
+    }
+    .block-label {
+      font-size: 0.7rem; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--accent);
+      margin-bottom: 2rem;
+    }
+
+    /* ─── PUBLICATION CARD ─── */
+    .pub-list { display: flex; flex-direction: column; gap: 1.5px; background: var(--warm-mid); }
+    .pub-card {
+      background: var(--parchment);
+      padding: 1.8rem 2rem;
+      display: grid;
+      grid-template-columns: 90px 1fr;
+      gap: 0 1.5rem;
+    }
+    .pub-year {
+      font-family: var(--serif);
+      font-size: 1.5rem; font-weight: 300;
+      color: var(--warm-mid); line-height: 1.2;
+      padding-top: 0.15rem;
+    }
+    .pub-body {}
+    .pub-title {
+      font-size: 0.95rem; font-weight: 500;
+      margin-bottom: 0.3rem; line-height: 1.4;
+    }
+    .pub-venue {
+      font-size: 0.82rem;
+      font-style: italic; color: var(--accent-lt);
+      margin-bottom: 0.2rem;
+    }
+    .pub-authors { font-size: 0.8rem; color: var(--muted); }
+    .pub-tag {
+      display: inline-block;
+      font-size: 0.68rem; letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.2rem 0.6rem;
+      border: 1px solid var(--accent-lt);
+      color: var(--accent); margin-top: 0.6rem;
+    }
+
+    /* ─── ONGOING PROJECT ─── */
+    .project-card {
+      padding: 1.8rem 0;
+      border-bottom: 1px solid var(--warm-mid);
+    }
+    .project-card:last-child { border-bottom: none; }
+    .project-title { font-size: 0.95rem; font-weight: 500; margin-bottom: 0.3rem; }
+    .project-collab { font-size: 0.82rem; color: var(--muted); font-style: italic; }
+    .project-status {
+      display: inline-block;
+      font-size: 0.68rem; letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.2rem 0.6rem;
+      background: var(--warm-mid);
+      color: var(--muted); margin-top: 0.5rem;
+    }
+
+    /* ─── ADVENTURES GRID ─── */
+    .adventures-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5px;
+      background: var(--warm-mid);
+    }
+    .adventure-card {
+      background: var(--parchment);
+      overflow: hidden;
+      position: relative;
+    }
+    .adventure-img {
+      width: 100%; aspect-ratio: 4/3;
+      object-fit: cover;
+      display: block;
+      filter: sepia(15%) contrast(1.05);
+      transition: transform 0.5s ease;
+    }
+    .adventure-card:hover .adventure-img { transform: scale(1.04); }
+    .adventure-text {
+      padding: 1.5rem 1.4rem 1.8rem;
+    }
+    .adventure-icon {
+      font-size: 1.2rem; margin-bottom: 0.6rem;
+    }
+    .adventure-title {
+      font-family: var(--serif);
+      font-size: 1.4rem; font-weight: 300;
+      margin-bottom: 0.6rem;
+    }
+    .adventure-desc {
+      font-size: 0.82rem; color: var(--muted);
+      line-height: 1.65;
+    }
+
+    /* ─── CONTACT STRIP ─── */
+    .contact-strip {
+      max-width: 960px; margin: 0 auto;
+      padding: 2rem 4rem 5rem;
+      display: flex; flex-wrap: wrap;
+      gap: 1.5rem; align-items: center;
+      border-top: 1px solid var(--warm-mid);
+    }
+    .contact-strip a { font-size: 0.82rem; color: var(--accent); text-decoration: none; }
+    .contact-strip a:hover { text-decoration: underline; }
+    .social-links { display: flex; gap: 0.8rem; align-items: center; }
+    .social-links a {
+      display: flex; align-items: center; justify-content: center;
+      width: 34px; height: 34px;
+      border: 1px solid var(--warm-mid); border-radius: 50%;
+      color: var(--muted); text-decoration: none;
+      transition: all 0.2s;
+    }
+    .social-links a:hover { border-color: var(--accent); color: var(--accent); }
+    .social-links svg { width: 15px; height: 15px; fill: currentColor; }
+
+    /* ─── FOOTER ─── */
+    footer {
+      border-top: 1px solid var(--warm-mid);
+      padding: 2rem 4rem;
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 0.75rem; color: var(--muted);
+    }
+    footer a { color: var(--muted); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
+
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { gap: 1.5rem; }
+      .page-header { padding: 7rem 1.5rem 2rem; }
+      .content { padding: 0 1.5rem 4rem; }
+      .pub-card { grid-template-columns: 1fr; }
+      .pub-year { font-size: 0.78rem; color: var(--muted); margin-bottom: 0.3rem; }
+      .adventures-grid { grid-template-columns: 1fr; }
+      .contact-strip { padding: 2rem 1.5rem; }
+      footer { flex-direction: column; gap: 0.5rem; padding: 1.5rem; }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="nav-brand" href="index.html">Matteo Consalvi</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="cv.html">CV</a></li>
+      <li><a href="research.html" class="active">Research &amp; Projects</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-header">
+    <div class="page-eyebrow">Work</div>
+    <h1>Research &amp; Projects</h1>
+  </div>
+
+  <div class="content">
+
+    <!-- PUBLISHED RESEARCH -->
+    <div class="research-block">
+      <div class="block-label">Published Research</div>
+      <div class="pub-list">
+
+        <div class="pub-card">
+          <div class="pub-year">2026</div>
+          <div class="pub-body">
+            <div class="pub-title">The Impact of EU Structural Policy on Italian Public Services</div>
+            <div class="pub-venue">Quaderni del CNEL</div>
+            <div class="pub-authors">Consalvi, M.</div>
+            <div><span class="pub-tag">Forthcoming</span></div>
+          </div>
+        </div>
+
+        <div class="pub-card">
+          <div class="pub-year">2026</div>
+          <div class="pub-body">
+            <div class="pub-title">NEET: a Social Challenge for Youth and Italy</div>
+            <div class="pub-venue">Casi e materiali di discussione, N. 33, CNEL</div>
+            <div class="pub-authors">Cirielli, G. and Consalvi, M.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ONGOING PROJECTS -->
+    <div class="research-block">
+      <div class="block-label">Ongoing Projects</div>
+      <div class="project-card">
+        <div class="project-title">Empirical Evidence on Mafia Corruption and Punishment Mechanisms in Italy</div>
+        <div class="project-collab">with Giorgio d'Agostino and Stefania Fontana</div>
+        <div><span class="project-status">Work in Progress</span></div>
+      </div>
+    </div>
+
+    <!-- NON-ACADEMIC PROJECTS -->
+    <div class="research-block">
+      <div class="block-label">Beyond the Desk</div>
+      <div class="adventures-grid">
+
+        <div class="adventure-card">
+          <img
+            src="https://lh3.googleusercontent.com/sitesv/AA5AbUAUy_tVrv2HJMGuD-JjQieSo_kczqnNvT2QVwLWwMQSatfllhegFL4Md_1L_DSQI_hViz3AcI28lLJ3mcJwcTN01SFtx5YVCYWK09TwgYNxczFlMPgPWkVOtAaVl6NwrnfjuXTX2UqBHkniQQRbid615hkTTHVjykrRvRC-GaclSBWo9hKBZA2fJWd25b2Q3aibMLoNqOAIhMLnuPHoD0RTIUOuEkM9Yli4=w1280"
+            alt="Mountain" class="adventure-img"
+          />
+          <div class="adventure-text">
+            <div class="adventure-icon">⛰</div>
+            <div class="adventure-title">Mountain</div>
+            <div class="adventure-desc">Planning a Tatra mountain range crossing for summer 2026. Currently training to climb my first 4000m summit in the Italian Alps, in the Monte Rosa massif.</div>
+          </div>
+        </div>
+
+        <div class="adventure-card">
+          <img
+            src="https://lh3.googleusercontent.com/sitesv/AA5AbUBPDTL5RcNLyrpO-PMTusRRp6wzeBy1pW5cmODo48mcCu1ySscyzSdWbjbDKW4V9P3QVxLzEcEfsE34kguwdEPT2nVt2SZs0IynUVEG6lER8NxW0_SE5eNvI-VVT_rMM8dWgfhp7elQfMu_PWEKwbPcDYpmygrNXB41Gp6aM1B7TSlnozOIWVFA3XiE=w1280"
+            alt="Sail" class="adventure-img"
+          />
+          <div class="adventure-text">
+            <div class="adventure-icon">⛵</div>
+            <div class="adventure-title">Sail</div>
+            <div class="adventure-desc">Gaining experience as an open sea sailor after 20 years of inshore sailing and teaching. Objective: a round trip of the African continent's coasts.</div>
+          </div>
+        </div>
+
+        <div class="adventure-card">
+          <img
+            src="https://lh3.googleusercontent.com/sitesv/AA5AbUCesKuSGTmrhcHvArKjnWbteI6fUDWuM_luyVw2ImlvP6PFwXUYU2SmhEhqKFfApOUiEF2Gim7iyZO1TS-8-wT5JUQM0NtbIWW3WQUrsptAq9PFYsJWTf-U50JIl87T4Zl71p3CMJIgwfUoHwuVu95vt_xzJ3VsKuD2z_4Ntpf6V9ayYz8u6TzT_acO917vRY5WFfm1F06R3cI3KhG3AwS-dp-Giou1JVEu=w1280"
+            alt="Adventure" class="adventure-img"
+          />
+          <div class="adventure-text">
+            <div class="adventure-icon">🧭</div>
+            <div class="adventure-title">Adventure</div>
+            <div class="adventure-desc">Designed a Rome-to-North-Cape walking route in 2019 through Italy, Austria, Germany, Denmark, Sweden, and Norway. Dream: riding the Pan-American road from Prudhoe Bay, AK to Ushuaia, CL.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- CONTACT -->
+  <div class="contact-strip">
+    <a href="mailto:consalvi.matteo@outlook.com">consalvi.matteo@outlook.com</a>
+    <span style="color:var(--muted); font-size:0.82rem;">+39 366 988 9788</span>
+    <div class="social-links">
+      <a href="https://www.linkedin.com/in/matteo-consalvi-65b625216/" target="_blank" rel="noopener" title="LinkedIn">
+        <svg viewBox="0 0 24 24"><path d="M20.447 20.452H17.21v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.999V9h3.102v1.561h.042c.431-.816 1.484-1.676 3.054-1.676 3.267 0 3.868 2.149 3.868 4.944l-.618 6.623zM5.337 7.433a1.8 1.8 0 1 1 0-3.6 1.8 1.8 0 0 1 0 3.6zm1.554 13.019H3.781V9h3.11v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      </a>
+      <a href="https://bsky.app/profile/mconsalvi.bsky.social" target="_blank" rel="noopener" title="Bluesky">
+        <svg viewBox="0 0 24 24"><path d="M12 10.8c-1.087-2.114-4.046-6.053-6.798-7.995C2.566.944 1.561 1.266.902 1.565.139 1.908 0 3.08 0 3.768c0 .69.378 5.65.624 6.479.815 2.736 3.713 3.66 6.383 3.364.136-.02.275-.039.415-.056-.138.022-.276.04-.415.056-3.912.58-7.387 2.005-2.83 7.078 5.013 5.19 6.87-1.113 7.823-4.308.953 3.195 2.05 9.271 7.733 4.308 4.267-4.308 1.172-6.498-2.74-7.078a8.741 8.741 0 0 1-.415-.056c.14.017.279.036.415.056 2.67.297 5.568-.628 6.383-3.364.246-.828.624-5.79.624-6.478 0-.69-.139-1.861-.902-2.204-.659-.298-1.664-.62-4.3 1.24C16.046 4.748 13.087 8.687 12 10.8z"/></svg>
+      </a>
+      <a href="https://x.com/matt_consi" target="_blank" rel="noopener" title="X">
+        <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <footer>
+    <span>&copy; 2025 Matteo Consalvi</span>
+    <span><a href="mailto:consalvi.matteo@outlook.com">consalvi.matteo@outlook.com</a> &nbsp;&middot;&nbsp; Rome, Italy</span>
+  </footer>
+
+</body>
+</html>
