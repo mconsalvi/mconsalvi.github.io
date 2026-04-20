@@ -92,6 +92,23 @@
       margin-bottom: 2rem;
     }
 
+        /* ─── ONGOING PROJECT ─── */
+    .project-card {
+      padding: 1.8rem 0;
+      border-bottom: 1px solid var(--warm-mid);
+    }
+    .project-card:last-child { border-bottom: none; }
+    .project-title { font-size: 0.95rem; font-weight: 500; margin-bottom: 0.3rem; }
+    .project-collab { font-size: 0.82rem; color: var(--muted); font-style: italic; }
+    .project-status {
+      display: inline-block;
+      font-size: 0.68rem; letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.2rem 0.6rem;
+      background: var(--warm-mid);
+      color: var(--muted); margin-top: 0.5rem;
+    }
+
     /* ─── PUBLICATION CARD ─── */
     .pub-list { display: flex; flex-direction: column; gap: 1.5px; background: var(--warm-mid); }
     .pub-card {
@@ -125,23 +142,6 @@
       padding: 0.2rem 0.6rem;
       border: 1px solid var(--accent-lt);
       color: var(--accent); margin-top: 0.6rem;
-    }
-
-    /* ─── ONGOING PROJECT ─── */
-    .project-card {
-      padding: 1.8rem 0;
-      border-bottom: 1px solid var(--warm-mid);
-    }
-    .project-card:last-child { border-bottom: none; }
-    .project-title { font-size: 0.95rem; font-weight: 500; margin-bottom: 0.3rem; }
-    .project-collab { font-size: 0.82rem; color: var(--muted); font-style: italic; }
-    .project-status {
-      display: inline-block;
-      font-size: 0.68rem; letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 0.2rem 0.6rem;
-      background: var(--warm-mid);
-      color: var(--muted); margin-top: 0.5rem;
     }
 
     /* ─── ADVENTURES GRID ─── */
@@ -247,6 +247,16 @@
 
   <div class="content">
 
+        <!-- ONGOING PROJECTS -->
+    <div class="research-block">
+      <div class="block-label">Ongoing Projects</div>
+      <div class="project-card">
+        <div class="project-title">Empirical Evidence on Mafia Corruption and Punishment Mechanisms in Italy</div>
+        <div class="project-collab">with Giorgio d'Agostino and Stefania Fontana</div>
+        <div><span class="project-status">Work in Progress</span></div>
+      </div>
+    </div>
+    
     <!-- PUBLISHED RESEARCH -->
     <div class="research-block">
       <div class="block-label">Published Research</div>
@@ -274,16 +284,6 @@
       </div>
     </div>
 
-    <!-- ONGOING PROJECTS -->
-    <div class="research-block">
-      <div class="block-label">Ongoing Projects</div>
-      <div class="project-card">
-        <div class="project-title">Empirical Evidence on Mafia Corruption and Punishment Mechanisms in Italy</div>
-        <div class="project-collab">with Giorgio d'Agostino and Stefania Fontana</div>
-        <div><span class="project-status">Work in Progress</span></div>
-      </div>
-    </div>
-
     <!-- NON-ACADEMIC PROJECTS -->
     <div class="research-block">
       <div class="block-label">Beyond the Desk</div>
@@ -291,7 +291,7 @@
 
         <div class="adventure-card">
           <img
-            src="https://lh3.googleusercontent.com/sitesv/AA5AbUAUy_tVrv2HJMGuD-JjQieSo_kczqnNvT2QVwLWwMQSatfllhegFL4Md_1L_DSQI_hViz3AcI28lLJ3mcJwcTN01SFtx5YVCYWK09TwgYNxczFlMPgPWkVOtAaVl6NwrnfjuXTX2UqBHkniQQRbid615hkTTHVjykrRvRC-GaclSBWo9hKBZA2fJWd25b2Q3aibMLoNqOAIhMLnuPHoD0RTIUOuEkM9Yli4=w1280"
+            src="assets/mountain-photo.jpeg"
             alt="Mountain" class="adventure-img"
           />
           <div class="adventure-text">
@@ -303,7 +303,7 @@
 
         <div class="adventure-card">
           <img
-            src="https://lh3.googleusercontent.com/sitesv/AA5AbUBPDTL5RcNLyrpO-PMTusRRp6wzeBy1pW5cmODo48mcCu1ySscyzSdWbjbDKW4V9P3QVxLzEcEfsE34kguwdEPT2nVt2SZs0IynUVEG6lER8NxW0_SE5eNvI-VVT_rMM8dWgfhp7elQfMu_PWEKwbPcDYpmygrNXB41Gp6aM1B7TSlnozOIWVFA3XiE=w1280"
+            src="assets/sailing-photo.jpg"
             alt="Sail" class="adventure-img"
           />
           <div class="adventure-text">
@@ -315,7 +315,7 @@
 
         <div class="adventure-card">
           <img
-            src="https://lh3.googleusercontent.com/sitesv/AA5AbUCesKuSGTmrhcHvArKjnWbteI6fUDWuM_luyVw2ImlvP6PFwXUYU2SmhEhqKFfApOUiEF2Gim7iyZO1TS-8-wT5JUQM0NtbIWW3WQUrsptAq9PFYsJWTf-U50JIl87T4Zl71p3CMJIgwfUoHwuVu95vt_xzJ3VsKuD2z_4Ntpf6V9ayYz8u6TzT_acO917vRY5WFfm1F06R3cI3KhG3AwS-dp-Giou1JVEu=w1280"
+            src="assets/adventure-photo.jpeg"
             alt="Adventure" class="adventure-img"
           />
           <div class="adventure-text">
